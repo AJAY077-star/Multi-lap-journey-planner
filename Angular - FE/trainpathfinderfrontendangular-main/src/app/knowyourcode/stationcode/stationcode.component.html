@@ -1,0 +1,79 @@
+<mat-toolbar class="top-menu">
+    <span>Know your Station code</span>
+    <span class="fill-remaining-space"></span>
+    <!-- <button class="btn-dialog-close" mat-stroked-button>
+        <mat-icon>clear</mat-icon>
+    </button> -->
+</mat-toolbar>
+<form class="normal-form" [formGroup]="stationCodeFormGroup">
+    <mat-grid-list cols="1" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <!--      <input type="hidden" formControlName="stationid"> -->
+                <mat-form-field>
+                    <input formControlName="name" matInput placeholder="Station Name" autocomplete="off" />
+                </mat-form-field>
+                <mat-card>Station Code : {{stationCode}}</mat-card>
+                <!-- <mat-card>Division Code</mat-card>
+                <mat-card>Zone Code</mat-card> -->
+                <!-- <mat-form-field>
+                    <input formControlName="divisioncode" matInput placeholder="Division Code" autocomplete="off"/>                
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="zonecode" matInput placeholder="Zone Code" autocomplete="off"/>                
+                </mat-form-field> -->
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" (click)="onStationNameCheckClick()">Check</button>
+        </div>
+        <!--  <div class="button-row">
+            <button mat-raised-button color="primary" type="submit">Add as source</button>
+        </div>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit">Add as destination</button>
+        </div> -->
+    </mat-toolbar>
+</form>
+<mat-toolbar class="top-menu">
+    <span>Know your Station name</span>
+    <span class="fill-remaining-space"></span>
+    <!-- <button class="btn-dialog-close" mat-stroked-button>
+        <mat-icon>clear</mat-icon>
+    </button> -->
+</mat-toolbar>
+<form class="normal-form" [formGroup]="stationNameFormGroup">
+    <mat-grid-list cols="1" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="code" matInput placeholder="Station Code" autocomplete="off" />
+                </mat-form-field>
+                <mat-card>Station Name : {{stationName}}</mat-card>
+                <!-- <mat-card>Division Code</mat-card>
+                <mat-card>Zone Code</mat-card> -->
+                <!-- <mat-form-field>
+                    <input formControlName="divisioncode" matInput placeholder="Division Code" autocomplete="off"/>                
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="zonecode" matInput placeholder="Zone Code" autocomplete="off"/>                
+                </mat-form-field> -->
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" (click)="onStationCodeCheckClick()">Check</button>
+        </div>
+        <!--  <div class="button-row">
+            <button mat-raised-button color="primary" type="submit">Add as source</button>
+        </div>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit">Add as destination</button>
+        </div> -->
+    </mat-toolbar>
+</form>

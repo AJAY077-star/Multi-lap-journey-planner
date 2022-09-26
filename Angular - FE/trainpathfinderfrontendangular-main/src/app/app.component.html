@@ -1,0 +1,45 @@
+<mat-toolbar class="top-menu mat-elevation-z5">
+  <mat-toolbar-row>
+    <span><img src="../assets/images/CRIS-Logo.png" style="width:50px; height:50px; vertical-align:bottom"/></span>
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleNav(sidenav)">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span class="fill-remaining-space"></span>
+    <button mat-icon-button>
+      <mat-icon class="vap-icon" aria-hidden="false" aria-label="Settings icon" >search icon</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon aria-hidden="false" aria-label="home icon">settings</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened class="vertical-menu">
+    <mat-nav-list style="width:200px">
+      <a mat-list-item routerLink="home" [skipLocationChange]="true">
+        <mat-icon>home</mat-icon>&nbsp;<label>Home</label>
+      </a>
+      <a mat-list-item routerLink="knowyourcode"  [skipLocationChange]="true">
+        <mat-icon>location_on</mat-icon>&nbsp;<label>Know your Station</label>
+      </a>
+      <a mat-list-item routerLink="findroute"  [skipLocationChange]="true">
+        <mat-icon>map icon</mat-icon>&nbsp;<label>Find Route</label>
+      </a>
+      <a mat-list-item routerLink="viewdata" [skipLocationChange]="true">
+        <mat-icon>data_usage</mat-icon>&nbsp;<label>View Data</label>
+      </a>
+      <a mat-list-item routerLink="about"  [skipLocationChange]="true">
+        <mat-icon>wc</mat-icon>&nbsp;<label>About</label>
+      </a>
+      <a mat-list-item routerLink="contact"  [skipLocationChange]="true">
+        <mat-icon>contact_support</mat-icon>&nbsp;<label>Contact</label>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p style="height:85vh">
+      <router-outlet></router-outlet>    
+     </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+   

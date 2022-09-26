@@ -1,0 +1,70 @@
+<mat-toolbar class="top-menu">
+    <span>Find Route</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button>
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-toolbar>
+<form class="normal-form">
+    <mat-grid-list cols="1" rowHeight="200px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <mat-label>Pick Source</mat-label>
+                    <input type="text" placeholder="Pick Source" aria-label="Number" (change)="onSourceChange($event)"
+                        matInput [formControl]="sourceControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of sourceFilteredStations" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Pick Destination</mat-label>
+                    <input type="text" placeholder="Pick Desination" aria-label="Number"
+                        (change)="onDestinationChange($event)" matInput [formControl]="destinationControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of destinationFilteredStations" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <div class="button-row">
+            <button mat-raised-button color="primary" (click)="onCheckTrainClick()" type="button">Check Trains</button>
+            <button mat-raised-button color="warn" (click)="refresh()"  type="button">Reset</button>
+        </div>
+    </mat-toolbar>
+</form>
+
+<div class="display-container" *ngIf="routeInfo != undefined">
+    <div *ngFor="let data of routeInfo;let i = index">
+        <h2>Journey {{i+1}}</h2>
+        <h4>Cumulative Distance : {{data[0]}} km</h4>
+        <h4>Cumulative Duration : {{data[1]}} hr</h4>
+        <table id="paths">
+            <thead>
+                <th>Station Id</th>
+                <th>Station Name</th>
+                <th>Train Name</th>
+                <th>Train Number</th>
+                <th>Division Code</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let path of routeInfo[i][2]">
+                    <td>{{path.stationId}}</td>
+                    <td>{{path.stationName}}</td>
+                    <td>{{path.train_name}}</td>
+                    <td>{{path.trainId}}</td>
+                    <td>{{path.division_code}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
